@@ -1,0 +1,14 @@
+asyncio
+csv
+opencv-python-headless
+numpy
+requests
+spotipy
+pywin32
+selenium
+shodan
+aiohttp
+beautifulsoup4
+pyfiglet
+pyttsx3
+SpeechRecognition
