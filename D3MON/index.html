@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI GUI</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, Saurabh</h1>
+        <h2>How can I help you today?</h2>
+        <div class="card-container">
+            <div class="card" onclick="sendQuery('how to store bread')">
+                <p>Settle a debate: how should you store bread?</p>
+            </div>
+            <div class="card" onclick="sendQuery('inspiring best man speeches')">
+                <p>Find YouTube videos with inspiring best man speeches</p>
+            </div>
+            <div class="card" onclick="sendQuery('12-week study plan for learning a new language')">
+                <p>Create a 12-week study plan for learning a new language</p>
+            </div>
+            <div class="card" onclick="sendQuery('pick a movie based on a genre')">
+                <p>Help me pick a movie to watch based on a genre</p>
+            </div>
+        </div>
+        <div id="response"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
