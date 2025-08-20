@@ -22,25 +22,21 @@ from selenium.webdriver.support import expected_conditions as EC
 from spotipy.oauth2 import SpotifyOAuth
 import numpy as np
 
-
-
 import random  # Import random module
 
 SHODAN_API_KEY = ''  # Replace with your Shodan API key
-# Spotify API credential
-SPOTIPY_CLIENT_ID = 'bce4322f88a84bd18e323167ff82455b'
-SPOTIPY_CLIENT_SECRET = '78469c2db5834aedbca94a384a4ffcbb'
+# Spotify API credentials
+SPOTIPY_CLIENT_ID = ''
+SPOTIPY_CLIENT_SECRET = ''
 SPOTIPY_REDIRECT_URI = 'http://localhost:8997/callback'
 
 class_labels = ["person", "car", "cat", "dog"]
-
 
 # Set up Spotify authentication
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID,
                                                client_secret=SPOTIPY_CLIENT_SECRET,
                                                redirect_uri=SPOTIPY_REDIRECT_URI,
                                                scope='user-library-read user-read-playback-state user-modify-playback-state'))
-
 
 # Placeholder for get_response function
 def get_response(category=None):
@@ -102,7 +98,6 @@ def takeCommand():
     #     return ""
          # Use input to take text input
         query = input("Enter your command: ").lower()
-
         return query
     except Exception as e:
         return f"Some Error occurred. Sorry from D3mon: {e}"
@@ -247,7 +242,6 @@ def search_and_play_youtube(song_name, browser="brave"):
         if driver is not None:
             driver.quit()
 
-
 def send_text_message(response):
     pass
 
@@ -298,7 +292,6 @@ def is_website(target):
                     ".tel", ".tf", ".tg", ".th", ".tj", ".tk", ".tl", ".tm", ".tn", ".to", ".tp", ".tr", ".travel", ".tt", ".tv", ".tw",
                     ".tz", ".ua", ".ug", ".uk", ".um", ".us", ".uy", ".uz", ".va", ".vc", ".ve", ".vg", ".vi", ".vn", ".vu", ".web", ".wf",
                     ".ws", ".xxx", ".ye", ".yt", ".yu", ".za", ".zm", ".zr", ".zw"])
-
 
 def detect_objects_yolov8(image_path):
     # Load YOLOv8 model
@@ -360,7 +353,6 @@ def detect_objects_yolov8(image_path):
 
     # Print or use the class label for providing information
     print(f"Detected object: {class_label}")
-
 
 def handle_command(query):
     try:
@@ -462,15 +454,13 @@ def assistant_response(query):
         print(f"Error in assistant_response: {e}")
         say(f"Sorry, I encountered an error while processing your request. {e}")
 
-
-
 def search_and_play_youtube(video_name):
     # Replace 'YOUR_YOUTUBE_API_KEY' with your actual YouTube Data API key
-    youtube_api_key = 'AIzaSyC9hiVMtgJWurYfRR4D8bcYPloJQ8bRdhU'
+    youtube_api_key = ''
 
     try:
         # Search for the song using YouTube Data API
-        search_url = f'https://www.googleapis.com/youtube/v3/search?q={video_name}&part=snippet&type=video&key={'AIzaSyC9hiVMtgJWurYfRR4D8bcYPloJQ8bRdhU'}'
+        search_url = f'https://www.googleapis.com/youtube/v3/search?q={video_name}&part=snippet&type=video&key={youtube_api_key}'
         response = requests.get(search_url)
         search_results = response.json()
 
@@ -486,7 +476,7 @@ def search_and_play_youtube(video_name):
             print(f"Playing {video_name} on YouTube.")
             time.sleep(10)  # Wait for the video to start playing
         else:
-            print(f"No search results found for {song_name}.")
+            print(f"No search results found for {video_name}.")
 
     except Exception as e:
         print(f"Error searching and playing on YouTube: {e}")
@@ -496,7 +486,7 @@ def search_and_play_youtube(video_name, browser="brave"):
 
     try:
         # Replace 'YOUR_YOUTUBE_API_KEY' with your actual YouTube Data API key
-        youtube_api_key = 'AIzaSyC9hiVMtgJWurYfRR4D8bcYPloJQ8bRdhU'
+        youtube_api_key = ''
 
         # Use the YouTube Data API to search for the song
         search_url = f'https://www.googleapis.com/youtube/v3/search?q={video_name}&part=snippet&type=video&key={youtube_api_key}'
@@ -523,7 +513,7 @@ def search_and_play_youtube(video_name, browser="brave"):
             video_url = f'https://www.youtube.com/watch?v={video_id}'
             driver.get(video_url)
 
-            print(f"Playing {song_name} on YouTube in {browser} browser.")
+            print(f"Playing {video_name} on YouTube in {browser} browser.")
             time.sleep(10)  # Wait for the video to start playing
 
             # Prompt user to press Enter before closing the browser window
@@ -538,8 +528,6 @@ def search_and_play_youtube(video_name, browser="brave"):
         # Close the browser window after playing
         if driver is not None:
             driver.quit()
-
-
 
 def detect_objects(image_path, net, layer_names):
     # Read the image
@@ -615,37 +603,26 @@ if __name__ == '__main__':
 
         elif "detect objects" in query:
             from eye import detect_objects
-
             # image_path = input("Enter the path of the image: ").strip()
             detect_objects()
 
         elif "perform osint" in query:
             from osint import osint_tool
-
             osint_tool()
 
         elif "vulnerability" in query or "find vulnerability" in query or "Scan Website" in query:
             from WebSec import check_vulnerabilities
-
             website_url = input("Enter the URL of the website to check for vulnerabilities: ")
-
             asyncio.run(check_vulnerabilities(website_url))
 
         elif "hashcrack" in query or "crack hash" in query or "find hash" in query:
             from HashCracker import hash_cracker
-
             hash_cracker()
 
         elif "start stego" in query or "Perform stegnography" in query or "Stegnography" in query:
             from Stegnography import steganography
-
             steganography()
-
 
         else:
             assistant_reply = assistant_response(query)
             print("Assistant:", assistant_reply)
-
-
-
-
