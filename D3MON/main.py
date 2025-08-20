@@ -26,8 +26,8 @@ class D3mon_Brain():
 
 SHODAN_API_KEY = ''  # Replace with your Shodan API key
 # Spotify API credential
-SPOTIPY_CLIENT_ID = 'bce4322f88a84bd18e323167ff82455b'
-SPOTIPY_CLIENT_SECRET = '78469c2db5834aedbca94a384a4ffcbb'
+SPOTIPY_CLIENT_ID = '//////'
+SPOTIPY_CLIENT_SECRET = '////////////'
 SPOTIPY_REDIRECT_URI = 'http://localhost:8997/callback'
 
 class_labels = ["person", "car", "cat", "dog"]
@@ -465,7 +465,7 @@ def assistant_response(query):
 
 def search_and_play_youtube(video_name):
     # Replace 'YOUR_YOUTUBE_API_KEY' with your actual YouTube Data API key
-    youtube_api_key = 'AIzaSyC9hiVMtgJWurYfRR4D8bcYPloJQ8bRdhU'
+    youtube_api_key = '///////////////'
 
     try:
         # Search for the song using YouTube Data API
@@ -495,7 +495,7 @@ def search_and_play_youtube(video_name, browser="brave"):
 
     try:
         # Replace 'YOUR_YOUTUBE_API_KEY' with your actual YouTube Data API key
-        youtube_api_key = 'AIzaSyC9hiVMtgJWurYfRR4D8bcYPloJQ8bRdhU'
+        youtube_api_key = '//////////////////'
 
         # Use the YouTube Data API to search for the song
         search_url = f'https://www.googleapis.com/youtube/v3/search?q={video_name}&part=snippet&type=video&key={youtube_api_key}'
@@ -649,6 +649,7 @@ if __name__ == '__main__':
         else:
             assistant_reply = assistant_response(query)
             print("Assistant:", assistant_reply)
+
 
 
 
