@@ -8,7 +8,7 @@ import shodan
 import csv
 import random  # Import random module
 
-SHODAN_API_KEY = 'XAbsu1Ruj5uhTNcxGdbGNgrh9WuMS1B6'  # Replace with your Shodan API key
+SHODAN_API_KEY = '# Replace with your Shodan API key'  # Replace with your Shodan API key
 
 
 # Placeholder for get_response function
@@ -169,3 +169,4 @@ if __name__ == '__main__':
         assistant_reply = assistant_response(query)
         print("Assistant:", assistant_reply)
         say(assistant_reply)
+
