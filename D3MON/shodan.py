@@ -2,7 +2,7 @@
 
 import shodan
 
-SHODAN_API_KEY = 'pHHlgpFt8Ka3Stb5UlTxcaEwciOeF2QM'  # Replace with your Shodan API key
+SHODAN_API_KEY = '//////////////////'  # Replace with your Shodan API key
 
 def get_shodan_info(query):
     try:
@@ -39,4 +39,5 @@ def save_to_txt(query, shodan_result):
 
 
 class Shodan:
+
     pass
